@@ -57,7 +57,7 @@ echo "INPUT_SONARHOSTNAME: $INPUT_SONARHOSTNAME"
 # ---------------------------------------------
 # export SONAR_TOKEN="your_token_from_sonarqube"
 
-# Simulate Github Action input variables  
+# Simulate Github Action input variables
 # export INPUT_SONARPROJECTKEY="your_projectkey"
 # export INPUT_SONARPROJECTNAME="your_projectname"
 # export INPUT_SONARORGANIZATION="your_organization"

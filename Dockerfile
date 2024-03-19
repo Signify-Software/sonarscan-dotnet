@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0.201
+FROM mcr.microsoft.com/dotnet/sdk:7.0.202
 
 LABEL "com.github.actions.name"="sonarscan-dotnet"
 LABEL "com.github.actions.description"="Sonarscanner for .NET 8 with pull request decoration support."
@@ -13,11 +13,11 @@ LABEL "maintainer"="Highbyte"
 
 # Version numbers of used software
 ENV SONAR_SCANNER_DOTNET_TOOL_VERSION=6.2 \
-    DOTNETCORE_RUNTIME_VERSION=8.0 \
+    DOTNETCORE_RUNTIME_VERSION=7.0 \
     NODE_VERSION=20 \
     JRE_VERSION=17
 
-# Add Microsoft Debian apt-get feed 
+# Add Microsoft Debian apt-get feed
 RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
     && dpkg -i packages-microsoft-prod.deb
 
@@ -31,7 +31,7 @@ RUN apt-get update -y \
     && apt-get install --no-install-recommends -y apt-transport-https \
     && apt-get update -y \
     && apt-get install --no-install-recommends -y aspnetcore-runtime-$DOTNETCORE_RUNTIME_VERSION
-    
+
 # Install NodeJS
 RUN apt-get install -y ca-certificates curl gnupg \
     && mkdir -p /etc/apt/keyrings \
